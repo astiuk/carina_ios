@@ -1,4 +1,4 @@
-package com.ahostiuk.carina.pages;
+package com.ahostiuk.carina.pages.ios;
 
 import com.ahostiuk.carina.pages.common.MenuPageBase;
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
