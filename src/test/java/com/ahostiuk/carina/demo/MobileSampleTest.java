@@ -1,7 +1,9 @@
 package com.ahostiuk.carina.demo;
 
+import com.ahostiuk.carina.enums.MenuItem;
 import com.ahostiuk.carina.pages.common.CartPageBase;
 import com.ahostiuk.carina.pages.common.CatalogPageBase;
+import com.ahostiuk.carina.pages.common.LoginPageBase;
 import com.ahostiuk.carina.pages.common.MenuPageBase;
 import org.testng.annotations.Test;
 
@@ -21,5 +23,17 @@ public class MobileSampleTest implements IAbstractTest, IMobileUtils {
         cartPage.assertPageOpened();
         MenuPageBase menuPage = cartPage.getFooterMenu().openMenuPage();
         menuPage.assertPageOpened();
+    }
+
+    @MethodOwner(owner = "ahostiuk")
+    @Test(description = "User can login with autofill")
+    public void loginAutofillTest() {
+        CatalogPageBase catalogPage = initPage(getDriver(), CatalogPageBase.class);
+        catalogPage.assertPageOpened();
+        MenuPageBase menuPage = catalogPage.getFooterMenu().openMenuPage();
+        menuPage.assertPageOpened();
+        LoginPageBase loginPage = (LoginPageBase) menuPage.clickMenuItem(MenuItem.LOGIN);
+        loginPage.assertPageOpened();
+        loginPage.loginWithAutofill().assertPageOpened();
     }
 }
