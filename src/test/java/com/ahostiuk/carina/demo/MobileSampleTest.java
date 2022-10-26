@@ -5,6 +5,9 @@ import com.ahostiuk.carina.pages.common.CartPageBase;
 import com.ahostiuk.carina.pages.common.CatalogPageBase;
 import com.ahostiuk.carina.pages.common.LoginPageBase;
 import com.ahostiuk.carina.pages.common.MenuPageBase;
+import com.ahostiuk.carina.pages.common.CartPageBase;
+import com.ahostiuk.carina.pages.common.CatalogPageBase;
+import com.ahostiuk.carina.pages.common.MenuPageBase;
 import org.testng.annotations.Test;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
