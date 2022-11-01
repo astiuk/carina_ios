@@ -17,6 +17,9 @@ public class CartPage extends CartPageBase {
     @ExtendedFindBy(iosPredicate = "value == \"tab list\"")
     private FooterMenu footerMenu;
 
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == \"%s\"`]")
+    private ExtendedWebElement itemLabel;
+
     public CartPage(WebDriver driver) {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
@@ -26,5 +29,11 @@ public class CartPage extends CartPageBase {
     @Override
     public FooterMenu getFooterMenu() {
         return footerMenu;
+    }
+
+    @Override
+    public boolean isItemByNamePresent(String name) {
+        swipe(itemLabel.format(name), Direction.UP, 5, 500);
+        return itemLabel.format(name).isPresent(3);
     }
 }

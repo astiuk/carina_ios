@@ -11,4 +11,6 @@ public abstract class CatalogProductPageBase extends AbstractPage implements IMo
     }
 
     public abstract String getProductDescription();
+
+    public abstract void clickAddToCartButton();
 }
