@@ -12,6 +12,9 @@ public class CatalogProductPage extends CatalogProductPageBase {
     @ExtendedFindBy(accessibilityId = "product description")
     private ExtendedWebElement productDescription;
 
+    @ExtendedFindBy(accessibilityId = "Add To Cart button")
+    private ExtendedWebElement addToCartButton;
+
     public CatalogProductPage(WebDriver driver) {
         super(driver);
     }
@@ -20,6 +23,12 @@ public class CatalogProductPage extends CatalogProductPageBase {
     public String getProductDescription() {
         swipe(productDescription, Direction.UP, 3, 500);
         return productDescription.getAttribute("value");
+    }
+
+    @Override
+    public void clickAddToCartButton() {
+        swipe(addToCartButton, Direction.UP, 3, 500);
+        addToCartButton.click(3);
     }
 
 

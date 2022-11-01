@@ -34,7 +34,7 @@ public class MobileSampleTest extends MyDemoAppBaseTest {
     }
 
     @MethodOwner(owner = "ahostiuk")
-    @Test(description = "User can view prodict description")
+    @Test(description = "User can view catalog item description")
     public void viewProductDescriptionTest() {
         CatalogPageBase catalogPage = loginWithAutoFill();
         CatalogProductPageBase catalogProductPage = catalogPage.openProductPageByName(BIKE_LIGHT_NAME);
@@ -42,5 +42,16 @@ public class MobileSampleTest extends MyDemoAppBaseTest {
                 String.format("Expected product description %s, actual description %s",
                         BIKE_LIGHT_DESCRIPTION,
                         catalogProductPage.getProductDescription()));
+    }
+
+    @MethodOwner(owner = "ahostiuk")
+    @Test(description = "User can add catalog item to cart")
+    public void addProductToCartTest() {
+        CatalogPageBase catalogPage = loginWithAutoFill();
+        CatalogProductPageBase catalogProductPage = catalogPage.openProductPageByName(BIKE_LIGHT_NAME);
+        catalogProductPage.clickAddToCartButton();
+        CartPageBase cartPage = catalogPage.getFooterMenu().openCartPage();
+        Assert.assertTrue(cartPage.isItemByNamePresent(BIKE_LIGHT_NAME),
+                String.format("%s item is not present", BIKE_LIGHT_NAME));
     }
 }
