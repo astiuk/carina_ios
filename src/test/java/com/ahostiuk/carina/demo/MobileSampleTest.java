@@ -43,7 +43,7 @@ public class MobileSampleTest extends MyDemoAppBaseTest {
                         BIKE_LIGHT_DESCRIPTION,
                         catalogProductPage.getProductDescription()));
     }
-
+    
     @MethodOwner(owner = "ahostiuk")
     @Test(description = "User can add catalog item to cart")
     public void addProductToCartTest() {

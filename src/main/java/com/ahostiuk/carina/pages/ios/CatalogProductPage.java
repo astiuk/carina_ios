@@ -30,6 +30,4 @@ public class CatalogProductPage extends CatalogProductPageBase {
         swipe(addToCartButton, Direction.UP, 3, 500);
         addToCartButton.click(3);
     }
-
-
 }
